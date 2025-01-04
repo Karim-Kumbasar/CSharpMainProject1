@@ -14,11 +14,14 @@ namespace UnitBrains.Player
         private bool _overheated;
         
         protected override void GenerateProjectiles(Vector2Int forTarget, List<BaseProjectile> intoList)
-        {
+        {    
+            for(GenerateProjectiles; GetTemperature?; GenerateProjectiles = GetTemperature)
             float overheatTemperature = OverheatTemperature;
-            ///////////////////////////////////////
-            // Homework 1.3 (1st block, 3rd module)
-            ///////////////////////////////////////           
+            if (GetTemperature >= overheatTemperature)
+            {
+                break;
+            }
+            IncreaseTemperature++;
             var projectile = CreateProjectile(forTarget);
             AddProjectileToList(projectile, intoList);
             ///////////////////////////////////////
