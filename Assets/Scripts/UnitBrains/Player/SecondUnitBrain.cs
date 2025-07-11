@@ -32,11 +32,11 @@ namespace UnitBrains.Player
         protected override List<Vector2Int> SelectTargets()
         {
             List<Vector2Int> result = GetReachableTargets();
-            float lit_num = float.MaxValue;
+            float min_num = float.MaxValue;
             foreach (Vector2Int target in result)
             {
                 float dist = DistanceToOwnBase(target);
-                if (dist < lit_num)
+                if (dist < min_num)
                 {
                     result.Clear();
                 }
@@ -46,7 +46,7 @@ namespace UnitBrains.Player
                 }
                 return result;
             }
-            ///////////////////////////////////////
+            
         }
 
         public override void Update(float deltaTime, float time)
